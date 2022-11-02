@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>点と点で輪になって キャラクター</title>
+        <meta name="description" content="美少女ゲーム「点と点で輪になって」のサイトです">
+        <meta name="keywords" content="エロゲ">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/character.css">
+        <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+        <link rel="shortcut icon" href="img/icon.png">
+        <meta name="format-detection" content="telephone=no">
+    </head>
+    <body>
+        <div id="app">
+            <div class="character">
+                <h1 class="character-title">CHARACTER</h1>
+                <div class="character-container">
+                    <div class="character-index-container">
+                        <ul class="index-list" v-for="img in index" :key="img.num">
+                            <li class="index-list-item"><img v-model:src="img.link" v-model:alt="img.title" @click="CurrentIndex(img)"></li>
+                        </ul>
+                    </div>
+                    <div class="character-slide-container">
+                        <span class="slide-button-prev" @click="PreviousSlideImage">＜</span>
+                        <img :src="CurrentSlideImage()" alt="">
+                        <span class="slide-button-next" @click="NextSlideImage">＞</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="character.js"></script>
+    </body>
+</html>
